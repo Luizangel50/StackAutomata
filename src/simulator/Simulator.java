@@ -48,7 +48,7 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else {
+							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
 								if(!stackStep.isEmpty()) System.out.println(stackStep);	
 							}
 							
@@ -87,9 +87,9 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else {
-								if(!stackStep.isEmpty()) System.out.println(stackStep);							
-							}						
+							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
+								if(!stackStep.isEmpty()) System.out.println(stackStep);	
+							}				
 						}
 						//Element to be popped is epsilon
 						else if(epsilon) {
@@ -103,7 +103,7 @@ public class Simulator {
 				else {
 					if(!stackStep.isEmpty() && notEpsilon==false) {
 						if(!currentState._isInitial) {
-							System.out.println(stackStep);
+							//System.out.println(stackStep);
 							stackStep.pop();
 							return;
 						}
@@ -136,8 +136,8 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else {
-								if(!stackStep.isEmpty()) System.out.println(stackStep);							
+							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
+								if(!stackStep.isEmpty()) System.out.println(stackStep);	
 							}
 							
 						}
