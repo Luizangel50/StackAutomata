@@ -74,16 +74,7 @@ public class Reader {
 	public void readString() throws Exception {
 		this._string = this._input.readLine().split("\\s");
 	}
-	
-	//Modifies the input file
-	public void modifyFile(String file) {
-		try {
-			this._input = new BufferedReader(new FileReader(file));
-		} catch (FileNotFoundException e) {
-			System.out.println("Input file not found");
-		}
-	}
-	
+		
 	private BufferedReader _input;
 	public Automata _automata = new Automata();
 	public String[] _string;

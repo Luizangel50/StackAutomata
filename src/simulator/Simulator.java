@@ -48,7 +48,7 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
+							else { 
 								if(!stackStep.isEmpty()) System.out.println(stackStep);	
 							}
 							
@@ -87,9 +87,9 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
+							else { 
 								if(!stackStep.isEmpty()) System.out.println(stackStep);	
-							}				
+							}			
 						}
 						//Element to be popped is epsilon
 						else if(epsilon) {
@@ -103,7 +103,6 @@ public class Simulator {
 				else {
 					if(!stackStep.isEmpty() && notEpsilon==false) {
 						if(!currentState._isInitial) {
-							//System.out.println(stackStep);
 							stackStep.pop();
 							return;
 						}
@@ -116,8 +115,6 @@ public class Simulator {
 				}
 			}
 			else {
-						
-				//boolean notEpsilon = false;
 				stackStep.push(currentState._nameState);
 				ArrayList<Integer> transitions = searchTransition(currentState._nameState, "*");
 				if(!transitions.isEmpty()) {
@@ -136,7 +133,7 @@ public class Simulator {
 								if(!itemPushed.equals("*"))	stack.pop();
 								stack.push(popped);
 							}
-							else if(!stack.empty() && !stack.lastElement().equals(this._automata._transitions.get(transitions.get(i))[2])){
+							else { 
 								if(!stackStep.isEmpty()) System.out.println(stackStep);	
 							}
 							
@@ -152,8 +149,6 @@ public class Simulator {
 					stackStep.pop();
 				}
 				else {
-					//System.out.println(stackStep);
-					//notEpsilon = true;
 					if(!stackStep.isEmpty()) stackStep.pop();
 				}
 				
@@ -163,7 +158,6 @@ public class Simulator {
 					System.out.print(" : String accepted \n");
 					stackStep.clear();
 				}
-				//System.out.println();
 				return;
 			}
 		}
